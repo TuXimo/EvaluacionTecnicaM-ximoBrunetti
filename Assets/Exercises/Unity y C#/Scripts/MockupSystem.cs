@@ -12,13 +12,13 @@ namespace Exercises.Unity_y_C_.Scripts
             Star mockupStar = new Star("MockStar", 0, 250);
             CelestialObjectsList.Add(mockupStar);
 
-            Planet mockupEarth = new Planet("Earth", 100, 10, mockupStar);
+            Planet mockupEarth = new Planet("Earth", 50, 10, mockupStar);
             Planet mockupVenus = new Planet("Venus", -150, 8, mockupStar);
-            Planet mockupJupiter = new Planet("Jupiter", 250, 30, mockupStar, 2);
+            Planet mockupJupiter = new Planet("Jupiter", 100, 30, mockupStar, 2);
             CelestialObjectsList.AddRange(new []{mockupEarth,mockupJupiter,mockupVenus});
 
-            Moon mockupAtlas = new Moon("Atlas", -100, 5, mockupJupiter);
-            Moon mockupTitan = new Moon("Titan", 80, 7, mockupJupiter);
+            Moon mockupAtlas = new Moon("Atlas", -5, 2, mockupJupiter);
+            Moon mockupTitan = new Moon("Titan", 10, 3, mockupJupiter);
             CelestialObjectsList.AddRange(new []{mockupAtlas,mockupTitan});
 
             CheckIfUrinary();
