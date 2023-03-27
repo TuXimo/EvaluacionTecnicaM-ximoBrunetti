@@ -7,6 +7,9 @@ namespace Exercises.Hex_Grids.Scripts
     {
         [Range(0,100)] public int width = 6;
         [Range(0,100)] public int height = 6;
+        
+        public Color defaultColor = Color.white;
+        public Color touchedColor = Color.magenta;
 
         public HexCell cellPrefab;
         
@@ -55,7 +58,12 @@ namespace Exercises.Hex_Grids.Scripts
         {
             position = transform.InverseTransformPoint(position);
             HexCoordinates coordinates = HexCoordinates.FromPosition(position);
-            Debug.Log("touched at " + coordinates.ToString());
+            Debug.Log("touched at " + coordinates);
+            
+            int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
+            HexCell cell = cells[index];
+            cell.color = touchedColor;
+            hexMesh.Triangulate(cells);
         }
 	
         private void CreateCell (int x, int z, int i) {
@@ -65,11 +73,13 @@ namespace Exercises.Hex_Grids.Scripts
             position.y = 0f;
             position.z = z * (HexMetrics.outerRadius * 1.5f);
 
-            HexCell cell = cells[i] = Instantiate<HexCell>(cellPrefab);
+            HexCell cell = cells[i] = Instantiate(cellPrefab);
             cell.transform.SetParent(transform, false);
             cell.transform.localPosition = position;
             cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
-		
+            cell.color = defaultColor;
+            //cell.GetComponent<MeshRenderer>().material.color = defaultColor;
+
             TMP_Text label = Instantiate(cellLabelPrefab, gridCanvas.transform, false);
             label.rectTransform.anchoredPosition =
                 new Vector2(position.x, position.z);

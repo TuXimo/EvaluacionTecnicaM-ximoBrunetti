@@ -154,6 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 6
   height: 6
+  defaultColor: {r: 0.2924528, g: 0.16664292, b: 0.16664292, a: 1}
+  touchedColor: {r: 0.9245283, g: 0, b: 0.2658428, a: 1}
   cellPrefab: {fileID: 1321318649053979802, guid: 0279d54c4029ca14db8189b5875d87bb,
     type: 3}
   cellLabelPrefab: {fileID: 809745492261646214, guid: fbcf3012c84b7064b84f91242373266b,
@@ -336,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5afa5a6e5a023c4fa27cbd63d365040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1421342347
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -356,7 +359,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 454cea13ec4409b4da8e6e76788c94fa, type: 2}
+  - {fileID: 2100000, guid: ae8cc1851c6c4884cbd9312b3a672f21, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
