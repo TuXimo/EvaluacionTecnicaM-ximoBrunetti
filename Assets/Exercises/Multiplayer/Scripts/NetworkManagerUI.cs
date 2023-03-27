@@ -1,5 +1,5 @@
+using System;
 using Unity.Netcode;
-using UnityEngine.UIElements;
 using UnityEngine;
 
 namespace Exercises.Multiplayer.Scripts
@@ -8,7 +8,7 @@ namespace Exercises.Multiplayer.Scripts
     {
         private void Awake()
         {
-            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None;
         }
 
         public void StartServer()

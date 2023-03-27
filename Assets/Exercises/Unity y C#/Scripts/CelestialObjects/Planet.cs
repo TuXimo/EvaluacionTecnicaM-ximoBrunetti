@@ -4,14 +4,13 @@ namespace Exercises.Unity_y_C_.Scripts.CelestialObjects
 {
     public class Planet : CelestialObject
     {
-        public Planet(string name, float distanceFromParentCelestialObject, int size, Star parentStar, int quantityOfMoons = 0) : base(name,distanceFromParentCelestialObject,size)
+        public Planet(string name, float distanceFromParentCelestialObject, int size, Star parentStar, bool hasMoons = false) : base(name,distanceFromParentCelestialObject,size)
         {
             ParentStar = parentStar;
-            QuantityOfMoons = quantityOfMoons;
-            CelestialColor = Color.blue;
+            HasMoons = hasMoons;
         }
 
-        public int QuantityOfMoons { get; }
+        public bool HasMoons { get; }
         public Star ParentStar { get; }
     }
 }

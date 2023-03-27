@@ -8,17 +8,16 @@ namespace Exercises.Unity_y_C_.Scripts.CelestialObjects
         {
             Name = name;
             Size = size;
-            distance = distanceFromParentToObject;
+            _distance = distanceFromParentToObject;
         }
 
         public string Name { get; }
         public int Size { get; }
 
-        private float distance;
+        private readonly float _distance;
         public Vector3 DistanceFromParentToObject(GameObject parentObject)
         {
-            return parentObject.transform.position - new Vector3(distance,0,0);
+            return parentObject.transform.position - new Vector3(_distance,0,0);
         }
-        public Color CelestialColor { get; protected set; } = Color.white;
     }
 }

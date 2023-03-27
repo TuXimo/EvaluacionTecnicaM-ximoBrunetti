@@ -10,15 +10,22 @@ namespace Exercises.Multiplayer.Scripts
         [SerializeField] private float movementSprint = 50f;
         private float _initMovementSpeed;    
         [SerializeField] private float upAndDownMovementSpeed = 10f;
+        [SerializeField] private GameObject playerCameraHolder;
+               
         
         public override void OnNetworkSpawn()
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-
+            
             //Store initial movement to later use it for the sprint
             _initMovementSpeed = movementSpeed;
             base.OnNetworkSpawn();
+
+            
+            //Avoid player get client camera
+            if (!IsLocalPlayer)
+                playerCameraHolder.SetActive(false);
         }
         private void Update()
         {
@@ -34,7 +41,7 @@ namespace Exercises.Multiplayer.Scripts
             transform.Translate(Vector3.forward * (movementSpeed * Time.deltaTime * Input.GetAxis("Vertical")));
             transform.Translate(Vector3.right * (movementSpeed * Time.deltaTime * Input.GetAxis("Horizontal")));
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E)||Input.GetKey(KeyCode.Space))
                 transform.Translate(Vector3.up * (upAndDownMovementSpeed * Time.deltaTime));
 
             if (Input.GetKey(KeyCode.Q))
@@ -56,12 +63,14 @@ namespace Exercises.Multiplayer.Scripts
 
         private void ExitServer()
         {
-            if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.I) || Input.GetKey(KeyCode.Escape))
+            {
                 NetworkManager.Singleton.Shutdown();
-            
-            //Set default cursor        
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+
+                //Set default cursor        
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Exercises.Unity_y_C_.Scripts
 
             Planet mockupEarth = new Planet("Earth", 50, 10, mockupStar);
             Planet mockupVenus = new Planet("Venus", -150, 8, mockupStar);
-            Planet mockupJupiter = new Planet("Jupiter", 100, 30, mockupStar, 2);
+            Planet mockupJupiter = new Planet("Jupiter", 100, 30, mockupStar, true);
             CelestialObjectsList.AddRange(new []{mockupEarth,mockupJupiter,mockupVenus});
 
             Moon mockupAtlas = new Moon("Atlas", -5, 2, mockupJupiter);

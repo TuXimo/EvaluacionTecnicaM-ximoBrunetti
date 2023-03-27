@@ -7,7 +7,6 @@ namespace Exercises.Unity_y_C_.Scripts.CelestialObjects
         public Moon(string name, float distanceFromParentCelestialObject, int size, Planet parentPlanet) : base(name,distanceFromParentCelestialObject,size)
         {
             ParentPlanet = parentPlanet;
-            CelestialColor = Color.gray;
         }
 
         public Planet ParentPlanet { get; }
